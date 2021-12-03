@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.guglielminijorge.course.entities.User;
-import com.guglielminijorge.course.services.UserService;
+import com.guglielminijorge.course.entities.Order;
+import com.guglielminijorge.course.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/orders")
+public class OrderResource {
 	
 	@Autowired
-	private UserService UserService;
+	private OrderService orderService;
 
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> list = UserService.findAll();
+	public ResponseEntity<List<Order>> findAll(){
+		List<Order> list = orderService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }
